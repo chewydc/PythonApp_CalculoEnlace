@@ -45,18 +45,20 @@ El script desarrollado busco ser amigable con el usuario, permitiendo vía conso
 Nuestro punto de partida consistió en armar el perfil topográfico entre dos ubicaciones cualesquiera (no teníamos un requerimiento puntual ni distancia prefijada). Optamos por simular y descargar varios enlaces punto a punto desde la herramienta Google Earth, dichos archivos nos servirían luego para testear que tan bien se comportaba nuestro script al modificarle el input.
 De esta forma, luego de marcar los puntos en Google Earth, exportamos el trayecto lineal en formato KML. Descubrimos que, si bien la información de coordenadas fue simple conseguirla desde el software de Google, no lo fue la altura o perfil del terreno entre dichos puntos (pese a que se visualizaban correctamente, ver Figura 1).
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura1.JPG)
 
-Es por ello que recurrimos a una segunda herramienta, GPS Visualizer (Figura 2), la cual fue verdaderamente muy potente, no solo formateamos el archivo original extensión KML (del tipo xml) a un texto plano. Sino también que nos permitió agregar a cada punto la altura del terreno, para si entonces armar nuestro perfil
+Es por ello que recurrimos a una segunda herramienta, GPS Visualizer (Figura 2), la cual fue verdaderamente muy potente, no solo formateamos el archivo original extensión KML (del tipo xml) a un texto plano. Sino también que nos permitió agregar a cada punto la altura del terreno, para si entonces armar nuestro perfil.
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura2.JPG)
 
 Completados estos pasos, contamos con los archivos de input al script. Como mencionamos previamente optamos por utilizar Python para el armado del programa, por su simpleza y también como una oportunidad de trabajarlo (no contábamos con experiencia previa). La estructura del script general puede visualizarse en la Figura 4.
 Tomamos algunos recaudos dentro del script, como por ejemplo un chequeo básico del ingreso por teclado de las variables, con un contador de error, al tercer error en el ingreso se toma un valor por defecto y sigue al siguiente paso. Dependiendo el caso es el chequeo, por ejemplo para el ingreso de la distancia entre torres, solo admite valores enteros y positivos, de lo contrario da error de ingreso y solicita nuevamente.
 Este bucle de revisión, está ajustado al dato solicitado, y en el paso del ingreso del nombre de archivo, también se revisa que exista dicho archivo. (Ver figura 3)
 Si bien revisamos estos bucles, generamos casuística y los testeamos, podremos encontrar  algún caso no contemplado donde el programa termine en un error durante su ejecución.
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura3.JPG)
+
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura4.JPG)
 
 <a name="Calculo"></a>
 ### Calculo de Enlace
@@ -70,11 +72,11 @@ Por lo tanto, en este análisis la onda electromagnética tiene que viajar desde
 Por consiguiente, se define Zona de Fresnel al volumen de espacio entre el emisor de una onda electromagnética y un receptor, de modo que el desfase de las ondas en dicho volumen no supere los 180º (60% libre de obstáculos), adoptando la forma de un elipsoide, a esta zona se le llama primera zona de Fresnel.
 Es aquí donde se concentra la mayor potencia de la señal que viaja de la antena transmisora hacia la antena receptora, cuya primera zona de Fresnel por lo menos el 60% de ella tiene que estar libre de obstáculos de esta manera se garantiza que la señal llegue a la estación receptora con buena potencia para cumplir un enlace ideal. (Figura 5)
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura5.JPG)
 
 Para calcular la primera zona de Fresnel se utiliza la siguiente ecuación la cual describe una elipse:
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Ecuacion1.JPG)
 
 Donde:
 n = Constante de la zona de Fresnel (n=17,31)
@@ -90,7 +92,7 @@ f: Frecuencia de transmisión del enlace (MHz)
 Este modelo se deduce de las ecuaciones de maxwell y permite calcular la potencia recibida a cierta distancia en condiciones ideales, es decir sin obstáculos de ninguna naturaleza. Se compone de una expression matemática que se utiliza para la propagación general de una señal. Este tipo de propagación define la cantidad de fuerza que la señal pierde durante la trayectoria entre transmisor y el receptor. La propagación del espacio libre depende de la frecuencia y la distancia del enlace.
 El cálculo se realiza mediante la siguiente ecuación:
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Ecuacion2.JPG)
 
 Pel (dB) = Pérdida de propagación en el espacio libre (dB)
 f = Frecuencia (MHz)
@@ -102,7 +104,7 @@ d = Distancia total del enlace (Km)
 Otro de los problemas que presentan los radio enlaces microondas punto a punto son los desvanecimientos producidos por multitrayectos. Esto se realiza cuando una onda de radio puede llegar al receptor a través de múltiples trayectorias debido a la reflexión de las ondas superficies reflectoras (agua, rocas, árboles). La señal sufre interferencia que causan problemas en la recepción.
 Un parámetro muy importante a tomar en cuenta en la propagación de una onda son sus reflexiones. Si la onda directa y la onda reflejada están defasadas 180° habrá lo que se llama desvanecimiento, esto se debe a las reflexiones del agua, por lo tanto para evitar el desvanecimiento especialmente en los enlaces que pasan por agua, se utiliza una altura adecuada en el tamaño de las torres donde la onda reflejada no se defase en su trayectoria con el fin de obtener un buen funcionamiento del enlace. (Ver Figura 6)
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura6.JPG)
 
 
 <a name="Atenuacion-por-Lluvia"></a>
@@ -115,14 +117,18 @@ Otro parámetro que se toma en cuenta en la propagación de la onda electromagn�
 
 En la figura 5 podemos apreciar algunos de los perfiles obtenidos. Estos archivos son leídos por nuestro script, le deberemos indicar el nombre correcto del archivo, el número de columna donde se encuentra los datos de la elevación del terreno (generalmente en la columna 3, también se excluye la primera fila reservada para los nombres de las columnas). (Ver figura 7)
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura7.JPG)
 
 Con los datos de los archivos de input, se genera un vector con los datos de altura. Finalmente se solicitan datos como la distancia entre torres y frecuencia de trabajo y se calculan los datos solicitados. En esta versión del script, no estamos tomando en consideración a la curvatura de la tierra en nuestros cálculos como tampoco posibles problemas de refracción.
 Como resultado de la Simulación obtenemos:
 
-![Image text]()
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura8.JPG)
 
-![Image text]()
+En el siguiente grafico (Figura 9) se puede apreciar en el origen de coordenadas la Antena punto A y al final de coordenadas punto B (para este ejemplo corrimos el perfil PergaminoJunin). La líneas rojas y azules representan el área de Fresnel siendo la azul el área de como resultado de la simulación. Las líneas verdes corresponden al perfil del terreno.
+
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura9.JPG)
+
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Figura10.JPG)
 
 <a name="Conclusion"></a>
 ### Conclusion
