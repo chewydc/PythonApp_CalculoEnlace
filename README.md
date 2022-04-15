@@ -92,7 +92,7 @@ f: Frecuencia de transmisión del enlace (MHz)
 Este modelo se deduce de las ecuaciones de maxwell y permite calcular la potencia recibida a cierta distancia en condiciones ideales, es decir sin obstáculos de ninguna naturaleza. Se compone de una expression matemática que se utiliza para la propagación general de una señal. Este tipo de propagación define la cantidad de fuerza que la señal pierde durante la trayectoria entre transmisor y el receptor. La propagación del espacio libre depende de la frecuencia y la distancia del enlace.
 El cálculo se realiza mediante la siguiente ecuación:
 
-![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Ecuacion2.JPG)
+![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/63735a4ee0713684da37ec5dda7923c1f7d14dfb/Img/Ecuacion2.JPG)
 
 Pel (dB) = Pérdida de propagación en el espacio libre (dB)
 f = Frecuencia (MHz)
