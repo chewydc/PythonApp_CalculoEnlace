@@ -91,12 +91,12 @@ Para calcular la primera zona de Fresnel se utiliza la siguiente ecuación la cu
 ![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/377beaf83d0e9eb3a70d5300b443d2b06e3f3d82/Img/Ecuacion1.JPG)
 
 Donde:
-n = Constante de la zona de Fresnel (n=17,31)
-Rf1: Radio de la primera zona de fresnel (m)
-d1: Distancia desde el obstáculo al extremo emisor (m)
-d2: Distancia desde el obstáculo al extremo receptor (m)
-dt: Distancia total del enlace (m)
-f: Frecuencia de transmisión del enlace (MHz)
+- n = Constante de la zona de Fresnel (n=17,31)
+- Rf1: Radio de la primera zona de fresnel (m)
+- d1: Distancia desde el obstáculo al extremo emisor (m)
+- d2: Distancia desde el obstáculo al extremo receptor (m)
+- dt: Distancia total del enlace (m)
+- f: Frecuencia de transmisión del enlace (MHz)
 
 <a name="Propagacion-Espacio-Libre"></a>
 ### Propagacion en el Espacio Libre
@@ -106,9 +106,9 @@ El cálculo se realiza mediante la siguiente ecuación:
 
 ![Image text](https://github.com/chewydc/PythonApp_CalculoEnlace/blob/63735a4ee0713684da37ec5dda7923c1f7d14dfb/Img/Ecuacion2.JPG)
 
-Pel (dB) = Pérdida de propagación en el espacio libre (dB)
-f = Frecuencia (MHz)
-d = Distancia total del enlace (Km)
+- Pel (dB) = Pérdida de propagación en el espacio libre (dB)
+- f = Frecuencia (MHz)
+- d = Distancia total del enlace (Km)
 
 <a name="Reflexiones"></a>
 ### Reflexiones
